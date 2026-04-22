@@ -1,0 +1,459 @@
+:root {
+    --bg-color:  #f4f4f4;
+    --second-bg-color: #ddd;
+    --transparent-bg-color: #f7f7f7cc;
+    --low-contrast-text: #1e1e21;
+    --high-contrast-text: #0e0e0e;
+    --link-color: #3c3c82;
+}
+  
+.dark-mode {
+    --bg-color: #1e1e21;
+    --second-bg-color: #333;
+    --transparent-bg-color: #1e1e21cc;
+    --low-contrast-text: #ddd;
+    --high-contrast-text: #f6f6f6;
+    --link-color: #a7a7d2;
+}
+  
+body {
+    background-color: var(--bg-color);
+    color: var(--low-contrast-text);
+}
+
+a, a:link {
+    color: var(--link-color);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--high-contrast-text);
+}
+
+p, li, ol, ul {
+    color: var(--low-contrast-text);
+    font-family: "Arial", sans-serif;
+    font-weight: lighter;
+    font-size: 16px;
+    line-height: 1.5em;
+}
+
+p strong, li strong, ol strong, ul strong {
+    font-weight: bold;
+}
+
+/* Style for main pages */
+.main-page {
+    max-width: 600px; /* Limits the width of the content */
+    margin: 0 auto; /* Centers the content */
+    padding: 20px; /* Adds spacing around the content */
+}
+
+.main-page img {
+    max-width: 90%; /* Ensures the image fits within the container */
+    height: auto; /* Maintains aspect ratio */
+    display: block; /* Removes extra space below the image */
+    margin: 0 auto; /* Centers the image */
+    padding: 10px 0; /* Adds spacing around the image */
+}
+
+.main-page h1 a, .main-page h2 a, .main-page h3 a, .main-page h4 a, .main-page h5 a, .main-page h6 a {
+    text-decoration: none;
+    color: var(--high-contrast-text);
+}
+
+.main-page h1 a:hover, .main-page h2 a:hover, .main-page h3 a:hover, .main-page h4 a:hover, .main-page h5 a:hover, .main-page h6 a:hover {
+    text-decoration: underline;
+}
+
+/* Style for the blog posts */
+.blog-post {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.blog-post img {
+    max-width: 90%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.blog-post iframe {
+    width: 100%;
+    height: 480px;
+}
+
+.blog-post h1 a, .blog-post h2 a, .blog-post h3 a, .blog-post h4 a, .blog-post h5 a, .blog-post h6 a {
+    text-decoration: none;
+    color: var(--high-contrast-text);
+}
+
+.blog-post h1 a:hover, .blog-post h2 a:hover, .blog-post h3 a:hover, .blog-post h4 a:hover, .blog-post h5 a:hover, .blog-post h6 a:hover {
+    text-decoration: underline;
+}
+
+/* Style for tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    padding: 1.5em;
+}
+
+thead {
+    color: var(--high-contrast-text);
+}
+
+tbody {
+    color: var(--low-contrast-text);
+    line-height: 2em;
+}
+
+/* Style for the header */
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+  
+.header-image img {
+    width: 100%;
+    height: auto;
+}
+
+.header-svg svg {
+    width: 100%;
+    height: auto;
+    stroke: var(--high-contrast-text);
+    background-color: var(--bg-color);
+    stroke-width: 1;
+    stroke-dasharray: none;
+    fill: none;
+}
+
+.header {
+    display: block;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: var(--bg-color);
+    color: var(--high-contrast-text);
+}
+  
+.header h1 {
+    margin: 0;
+}
+
+.header a:link, .header a:visited {
+    color: var(--high-contrast-text);
+    text-decoration: none;
+}
+
+.site-title a:hover {
+    text-decoration: underline;
+}
+
+.header img {
+    width: 100%;
+    height: auto;
+}
+
+.header-links {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+  
+nav {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+  
+nav a {
+    text-decoration: none;
+    color: var(--high-contrast-text);
+    padding: 5px 10px;
+    transition: background-color 0.3s;
+}
+  
+nav a:hover {
+    background-color: var(--second-bg-color);
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.nav-toggle {
+    display: none;
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+
+@media (max-width: 768px) {
+    nav {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--transparent-bg-color);
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding-top: 80px;
+        z-index: 999;
+    }
+
+    .nav-toggle {
+        display: block;
+        color: var(--high-contrast-text);
+    }
+    
+    .nav-open nav {
+        display: flex;
+        color: var(--link-color);
+    }
+    
+    nav a {
+        color: var(--link-color);
+        font-size: 30px;
+        margin: 5px 0;
+        text-decoration: none;
+    }
+}
+  
+.icon-toggle {
+    margin-left: 5px;
+}
+
+/* Style for the footer */
+.footer-content {
+    display: flex;
+    justify-content: center; /* Adjust as needed */
+    align-items: center; /* Align vertically */
+}
+
+.footer-svg svg {
+    width: 100%;
+    height: auto;
+    stroke: var(--high-contrast-text);
+    background-color: var(--bg-color);
+    stroke-width: 0.2;
+    stroke-dasharray: none;
+    fill: none;
+}
+
+.footer {
+    display: block;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: var(--bg-color);
+    color: var(--high-contrast-text);
+}
+
+.footer a:link, .footer a:visited {
+    color: var(--link-color);
+    text-decoration: bold;
+    padding: 0 1%;
+}
+
+/* Style for the dark mode toggle switch */
+.icon-toggle {
+    cursor: pointer;
+    font-size: 1.5em;
+}
+
+.icon-toggle .icon {
+display: none;
+}
+
+.icon-toggle.light-mode .dark-icon {
+display: inline;
+}
+
+.icon-toggle.dark-mode .light-icon {
+display: inline;
+}
+
+/* Style for welcome graphics */
+.welcome-banner {
+    display: flex;
+    gap: 20px;
+    max-width: 1200px;
+    max-height: 270px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.welcome-block {
+    flex: 1; /* Ensures both blocks take equal space */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    color: var(--high-contrast-text);
+    font-size: 2em;
+    border-radius: 8px;
+}
+
+.welcome-block a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.welcome-svg {
+    stroke: var(--link-color);
+    stroke-width: 1;
+    stroke-dasharray: none;
+    fill: none;
+    width: 100%;
+    height: 100%;
+}
+
+.overlay-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--high-contrast-text);
+    text-shadow: 1px 1px var(--bg-color);
+    font-size: 5vw;
+    pointer-events: none;
+}
+
+.welcome-link {
+    text-decoration: none;
+    display: block;
+}
+
+.welcome-link:hover .welcome-svg {
+    stroke: var(--low-contrast-text);
+}
+
+/* Style for calculator */
+label {
+    color: var(--low-contrast-text);
+    font-family: "Arial", sans-serif;
+    font-weight: lighter;
+    font-size: 16px;
+    line-height: 1.5em;
+}
+
+input[type="number"] {
+    font-family: "Arial", sans-serif;
+    font-weight: lighter;
+    font-size: 16px;
+    background-color: var(--bg-color);
+    color: var(--high-contrast-text);
+    width: 100px;
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid var(--low-contrast-text);
+    border-radius: 4px;
+}
+
+.button {
+    background-color: var(--link-color);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.button:hover {
+    color: var(--high-contrast-text);
+    background-color: var(--second-bg-color);
+}
+
+/* Style for Search input */
+
+#search-input {
+	background-color: var(--bg-color);
+    color: var(--high-contrast-text);
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    border: 1px solid var(--high-contrast-text);
+    border-radius: 8px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s;
+}
+
+#search-input::placeholder {
+    color: var(--low-contrast-text);
+}
+
+#search-input:focus {
+    outline: 2px solid var(--link-color);
+}
+
+.card {
+    border: 3px solid var(--second-bg-color);
+    border-radius: 20px;
+    padding: 12px;
+    margin-bottom: 10px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s;
+}
+
+.card:hover {
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.card-title {
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.card-title a {
+    color: var(--high-contrast-text);
+    text-decoration: none;
+}
+
+.card-title a:hover {
+    text-decoration: underline;
+}
+
+.card-date {
+    color: var(--low-contrast-text);
+    font-family: "Arial", sans-serif;
+    font-weight: lighter;
+    font-size: 16px;
+    line-height: 1.5em;
+    opacity: 0.8;
+    padding: .3em .5em;
+}
+
+.card-tags .tag {
+    color: var(--link-color);
+    font-family: "Arial", sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 1.5em;
+    cursor: pointer;
+    border: 1px solid var(--second-bg-color);
+    padding: .2em .5em;
+    border-radius: 8px;
+    margin-right: 5px;
+    white-space: nowrap;
+}
+
+.card-tags .tag:hover {
+    text-decoration: underline;
+}
